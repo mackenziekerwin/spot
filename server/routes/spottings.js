@@ -17,7 +17,7 @@ exports.get = (req, res) => {
 exports.getByUserId = (req, res) => {
   const { username } = req.params;
   db.conn.query(
-    `select dog.name dog, breed.name breed, date, zip_code from spotting
+    `select dog.name dog, breed.name breed, image_url, zip_code from spotting
     join dog using (dog_id)
     join breed on (dog.breed_id) = breed.breed_id
     where username = '${username}'`,

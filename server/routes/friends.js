@@ -1,5 +1,6 @@
 const db = require('../db')
 
+// get all of a user's friends
 exports.getById = (req, res) => {
   const { username } = req.params;
   db.conn.query(

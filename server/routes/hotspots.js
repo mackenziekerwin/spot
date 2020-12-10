@@ -1,5 +1,6 @@
 const db = require('../db')
 
+// get a list of cities ordered by the number of spottings
 exports.get = (req, res) => {
   db.conn.query(
     `select city, state, count(spotting_id) spottings

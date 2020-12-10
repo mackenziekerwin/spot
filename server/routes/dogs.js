@@ -1,9 +1,10 @@
 const db = require('../db')
 
-// get all users
+// get a list of all registered dogs
 exports.get = (req, res) => {
   db.conn.query(
-    `select * from user`,
+    `select dog_id id, dog.name name, breed.name breed, breed_id, owner
+    from dog join breed using (breed_id)`,
     (err, results) => {
       if (err) {
         console.log(err);
@@ -14,12 +15,13 @@ exports.get = (req, res) => {
   )
 }
 
-// get the given user's user and location information
-exports.getById = (req, res) => {
+// get a list of a user's dogs
+exports.getByUserId = (req, res) => {
   const { username } = req.params;
   db.conn.query(
-    `select * from user join location using (zip_code)
-    where username = '${username}'`,
+    `select dog_id id, dog.name name, breed.name breed, breed_id
+    from dog join breed using (breed_id)
+    where owner = '${username}'`,
     (err, results) => {
       if (err) {
         console.log(err);
@@ -29,3 +31,4 @@ exports.getById = (req, res) => {
     }
   )
 }
+

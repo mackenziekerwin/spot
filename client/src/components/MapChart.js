@@ -19,7 +19,7 @@ const MapChart = ({ cities }) => {
 
   const rScale = scaleLinear()
     .domain([0, Math.max(...cities.map((c) => c.spottings))])
-    .range([0, 15]);
+    .range([0, 20]);
   
   return (
     <ComposableMap projection="geoAlbersUsa">
@@ -39,7 +39,7 @@ const MapChart = ({ cities }) => {
           <Marker key={i} coordinates={[ob.longitude, ob.latitude]}>
             <circle
               r={rScale(c.spottings)}
-              fill="#FFD43D"
+              fill='#138D75'
             />
           </Marker>
         )

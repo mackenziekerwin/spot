@@ -13,7 +13,7 @@ function Hotspots() {
   
   return (
     <div className='App'>
-      <Typography variant='h3'>Hotspots</Typography>
+      <Typography className='title' variant='h3'>Hotspots</Typography>
       {!!hotspots.length && <MapChart cities={hotspots} />}
       <Table>
         <TableHead>

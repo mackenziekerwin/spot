@@ -1,5 +1,6 @@
 const db = require('../db')
 
+// get a list of the top 20 users with the most points
 exports.get = (req, res) => {
   db.conn.query(
     `select username, sum(points) points from (

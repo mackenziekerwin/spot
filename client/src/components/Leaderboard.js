@@ -26,8 +26,8 @@ function Leaderboard() {
           {leaderboard.map((user, i) => (
           <TableRow key={i}>
             <TableCell>{i + 1}</TableCell>
-              <TableCell><Link to={`users/${user.username}`}>{user.username}</Link></TableCell>
-            <TableCell>{user.points}</TableCell>
+            <TableCell><Link to={`users/${user.username}`}>{user.username}</Link></TableCell>
+              <TableCell>{user.points}</TableCell>
           </TableRow>
           ))}
         </TableBody>

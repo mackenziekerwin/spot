@@ -7,6 +7,8 @@ const leaderboard = require('./routes/leaderboard')
 const users = require('./routes/users')
 const friends = require('./routes/friends')
 const achievements = require('./routes/achievements')
+const dogs = require('./routes/dogs')
+const breeds = require('./routes/breeds')
 
 app.use(cors());
 app.use(express.json());
@@ -30,5 +32,13 @@ app.get('/friends/:username', friends.getById);
 
 // achievements
 app.get('/achievements/:username', achievements.getById);
+
+// dogs
+app.get('/dogs', dogs.get);
+app.get('/dogs/:username', dogs.getByUserId);
+
+// breeds
+app.get('/breeds', breeds.get);
+app.get('/breeds/:breed_id', breeds.getById);
 
 app.listen(3001, () => console.log('Server running on port 3001'));
